@@ -49,7 +49,7 @@ function game(){
     let result=""
     for(let i=0;i<5;i++){
        result =  playRound(computerSelection,playerSelection);
-       if(result="c"{
+       if(result="c"){
         computerScore++;
        }
        else if(result="p"){
@@ -68,4 +68,3 @@ function game(){
         }
     }
     
-}
