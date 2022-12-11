@@ -36,7 +36,7 @@ const computerSelection = getComputerChoice();
 const playerSelection = getPlayerChoice();
 function getPlayerChoice(){
     const playerChoice = prompt("lets play the game enter your choice","no entry");
-    if (playerChoice.toLowerCase()=== "rock" || playerChoice.toLowerCase()==="scissor"||playerChoice.toLowerCase==="paper"){
+    if ((playerChoice.toLowerCase()=== "rock" )|| (playerChoice.toLowerCase()==="scissor")||(playerChoice.toLowerCase==="paper")){
         return playerChoice.toLowerCase();
     }
     else {
