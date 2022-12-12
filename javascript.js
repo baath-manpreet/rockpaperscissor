@@ -1,3 +1,4 @@
+// this function returns a random choice out of rock paper and scissor
 function getComputerChoice(){
     //make an array of choices
    const  choices =["rock","paper","scissor"];
@@ -10,6 +11,8 @@ function getComputerChoice(){
    return choice;
 
 }
+// this function prompts the user for a round of rock paper and scissor, declares the winner of round in console
+//and returns the result to game() function
 function playRound(computerSelection,playerSelection){
     if(computerSelection==playerSelection){
         console.log("draw");
@@ -41,6 +44,7 @@ function playRound(computerSelection,playerSelection){
         return "p";
     }
 }
+// this function prompts user for a choice of rock paper and scissor and verifies the validity of choice
 function getPlayerChoice(){
     const playerChoice = prompt("lets play the game enter your choice","no entry");
     if ((playerChoice.toLowerCase() === "rock" ) || (playerChoice.toLowerCase() === "scissor") ){
@@ -49,10 +53,13 @@ function getPlayerChoice(){
     else if(playerChoice.toLowerCase()==="paper") {
         return playerChoice.toLowerCase();
     }
+    // if the choice is not valid the getPlayerChoice function is called again
     else {
        return getPlayerChoice();
     }
 }
+//This function is called in the html doument, it calls the playRound function five times,keeps the score and
+//declares the winner between computer and the user.
 function game(){
     let playerScore=0
     let computerScore=0
