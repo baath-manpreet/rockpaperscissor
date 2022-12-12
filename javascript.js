@@ -2,41 +2,51 @@ function getComputerChoice(){
     //make an array of choices
    const  choices =["rock","paper","scissor"];
    //get random index
-   const randomIndex = Math.floor(Math.random * choices.length);
+   const randomIndex = Math.floor(Math.random() * choices.length);
     // get the random choice
    const choice = choices[randomIndex];
-
+    console.log("choice is ",choice);
+    console.log("randomindexis",randomIndex);
    return choice;
 
 }
 function playRound(computerSelection,playerSelection){
     if(computerSelection==playerSelection){
+        console.log("draw");
         return "d";
     }
-    else if(computerSelection==="rock"&& playerSelection=="scissor"){
+    else if((computerSelection==="rock")&& (playerSelection=="scissor")){
+       console.log("computer won the round");
         return"c";
     }
-    else if(computerSelection==="paper"&& playerSelection=="rock"){
+    else if((computerSelection==="paper")&& (playerSelection=="rock")){
+        console.log("computer won the round");
+        return "c";
+
+    }
+    else if((computerSelection==="scissor")&& (playerSelection=="paper")){
+        console.log("computer won the round");
         return "c";
     }
-    else if(computerSelection==="scissor"&& playerSelection=="paper"){
-        return "c";
-    }
-    else if(playerSelection==="rock"&& computerSelection=="scissor"){
+    else if((playerSelection==="rock")&& (computerSelection=="scissor")){
+        console.log("you won the round");
         return"p";
     }
-    else if(playerSelection==="paper"&& computerSelection=="rock"){
+    else if((playerSelection==="paper")&& (computerSelection=="rock")){
+        console.log("you won the round");
         return "p";
     }
-    else if(playerSelection==="scissor"&& computerSelection=="paper"){
+    else if((playerSelection==="scissor")&& (computerSelection=="paper")){
+        console.log("you won the round");
         return "p";
     }
 }
-const computerSelection = getComputerChoice();
-const playerSelection = getPlayerChoice();
 function getPlayerChoice(){
     const playerChoice = prompt("lets play the game enter your choice","no entry");
-    if ((playerChoice.toLowerCase()=== "rock" )|| (playerChoice.toLowerCase()==="scissor")||(playerChoice.toLowerCase==="paper")){
+    if ((playerChoice.toLowerCase() === "rock" ) || (playerChoice.toLowerCase() === "scissor") ){
+        return playerChoice.toLowerCase();
+    }
+    else if(playerChoice.toLowerCase()==="paper") {
         return playerChoice.toLowerCase();
     }
     else {
@@ -47,13 +57,22 @@ function game(){
     let playerScore=0
     let computerScore=0
     let result=""
+    let computerSelection = " ";
+    let playerSelection = " ";
+
     for(let i=0;i<5;i++){
+        computerSelection = getComputerChoice();
+        console.log("computer selection is",computerSelection);
+        playerSelection = getPlayerChoice();
        result =  playRound(computerSelection,playerSelection);
-       if(result="c"){
+       console.log("result is",result);
+       if(result==="c"){
         computerScore++;
+        console.log("computerscore is",computerScore);
        }
-       else if(result="p"){
+       else if(result==="p"){
         playerScore++;
+        console.log("playerscore is",playerScore);
        }
     
     }
